@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  </style>
+  <title>3d test</title>
+<script>
+window.onload=function(){
+  var canvas = document.getElementById('canvas'),
+     ctx = canvas.getContext('2d'),
+     s = 150,
+     v = 0.02,
+     r = s,
+     xCenter = s*1.1,
+     yCenter = s/1.6,
+     f = 0,
+     a = Math.PI*0.5,
+     b = Math.PI*1.5,
+     c = Math.PI,
+     n = 2;
+
+  canvas.width=s*2.2;
+  canvas.height=s*2.2;
+
+  function lol(){
+
+    canvas.width = canvas.width;
+    ctx.lineWidth = 3;
+
+    ctx.beginPath();
+    ctx.moveTo(xCenter+Math.cos(f)*r, yCenter + Math.sin(f) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+a)*r, yCenter + Math.sin(f+a) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+c)*r, yCenter + Math.sin(f+c) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+b)*r, yCenter + Math.sin(f+b) * r / n);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(xCenter+Math.cos(f)*r, yCenter + Math.sin(f) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f)*r, yCenter + r+ Math.sin(f) * r / n);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(xCenter+Math.cos(f+a)*r, yCenter + Math.sin(f+a) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+a)*r, yCenter + r+ Math.sin(f+a) * r / n);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(xCenter+Math.cos(f+c)*r, yCenter + Math.sin(f+c) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+c)*r, yCenter + r+ Math.sin(f+c) * r / n);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(xCenter+Math.cos(f+b)*r, yCenter + Math.sin(f+b) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+b)*r, yCenter + r+ Math.sin(f+b) * r / n);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(xCenter+Math.cos(f)*r, yCenter + r+ Math.sin(f) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+a)*r, yCenter + r+ Math.sin(f+a) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+c)*r, yCenter + r+ Math.sin(f+c) * r / n);
+    ctx.lineTo(xCenter+Math.cos(f+b)*r, yCenter + r+ Math.sin(f+b) * r / n);
+    ctx.closePath();
+    ctx.stroke();
+
+    f = f + v;
+
+  }
+
+  window.setInterval(lol, 20);
+
+}
+</script>
+</head>
+<body>
+
+  <table width=100% height=100%>
+    <tr>
+      <td align=center><canvas id='canvas'></canvas></td>
+    </tr>
+  </table>
+  
+</body>
+</html>
